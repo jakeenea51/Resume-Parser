@@ -66,7 +66,7 @@ def submit():
         score = round(score*100, 2)
         scoreMessage = 'Score: ' + str(score) + '%'
         matchesMessage = 'Matching words: ' + str(matches)
-        with open("Resume Parser/results.txt", "a") as fo:
+        with open("results.txt", "a") as fo:
             fo.write(str(score) + '%\t\t\n\tFILEPATH: ' + str(filePath) + '\t\t\n\tKEYWORDS: ' + str(keywords) + '\t\t\n\tMATCHES: ' + str(matches) + '\t\t\n\n')
     elif filePath == '':
         errorMessage = 'Please upload a file.'
@@ -82,7 +82,7 @@ def submit():
 # page to review submitted resumes
 @app.route('/review', methods=['GET', 'POST'])
 def review():
-    with open("Resume Parser/results.txt", 'r') as fi:
+    with open("results.txt", 'r') as fi:
         results = str(fi.read())
     # render HTML
     return render_template('review.html', results=results)
@@ -136,4 +136,4 @@ def matchKeywords(keywords, resumewords):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
