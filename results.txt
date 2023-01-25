@@ -1,0 +1,10 @@
+71.43%		
+	FILEPATH: c:\Users\Jake\OneDrive\Documents\Headstarter\Resume Parser\static/files\sample_resume.pdf		
+	KEYWORDS: ['finance', 'audit', 'accounting', 'excel', 'computer', 'systems', 'tax']		
+	MATCHES: ['finance', 'audit', 'accounting', 'excel', 'tax']				
+
+20.0%		
+	FILEPATH: c:\Users\Jake\OneDrive\Documents\Headstarter\Resume Parser\static/files\sample_resume.pdf		
+	KEYWORDS: ['programming', 'development', 'physics', 'engineering', 'construction']		
+	MATCHES: ['development']		
+
