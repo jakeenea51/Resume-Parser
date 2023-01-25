@@ -1,0 +1,4 @@
+flask==2.2.2
+flask_wtf==1.1.1
+wtforms==3.0.1
+pypdf2==3.0.1
