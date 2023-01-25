@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Parser</title>
+</head>
+<style>
+    body{
+        font-family: 'Lucida Grande', monospace;
+        font-size: 15px;
+    }
+</style>
+<body>
+    <h1>Resume Parser</h1>
+    <p>by Jake Enea</p>
+    <a href="{{url_for('review')}}" >Review submissions</a>
+    <p>---------------------------------------------------------------</p>
+
+    <h2>Step 1: Enter Keywords</h2>
+    <p>Enter individually or as a space-separated list.</p>
+    <form method="POST" enctype="multipart/form-data">
+        <p><input type="text" name="kw"/></p>
+        <p><input type="submit" value="Submit"/></p>
+    </form>
+
+    <h4>Keywords</h4>
+        <ul>
+            {% for word in keywords %}
+                <li><input type='hidden'>{{ word }}</li>
+            {% endfor %}
+        </ul>
+        <form method="POST"enctype="multipart/form-data">
+            <input type="submit" name="r" value="Reset"/>
+        </form>
+
+    <p>---------------------------------------------------------------</p>
+    <h2>Step 2: Upload Resume (.pdf only)</h2>
+    <form method='POST' enctype='multipart/form-data'>
+        {{form.hidden_tag()}}
+        {{form.file()}}
+        {{form.submit()}}
+        <p>{{ uploadResult }}</p>
+    </form>
+
+    <p>---------------------------------------------------------------</p>
+    <h2>Step 3: Parse and Score Resume</h2>
+    <form method='POST' enctype='multipart/form-data'>
+        <input type="submit" name="p" value="Parse"/>
+        <p>{{ errorMessage }}</p>
+        <p>{{ scoreMessage }}</p>
+        <p>{{ matchesMessage }}</p>
+    </form>
+
+</body>
+<br><br><br>
+</html>
